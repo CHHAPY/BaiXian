@@ -14,4 +14,6 @@ public interface UserPojoMapper {
     int updateByPrimaryKeySelective(UserPojo record);
 
     int updateByPrimaryKey(UserPojo record);
+    
+    int selTotal();	//测试
 }

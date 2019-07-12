@@ -13,6 +13,15 @@
   <sql id="Base_Column_List">
     id, name, pad, tel, status_flag, sup_flag, pur_flag
   </sql>
+  
+  <select id="selTotal" resultType="int">
+  	select count(*) from user;
+  </select>
+  
+  
+  
+  
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
