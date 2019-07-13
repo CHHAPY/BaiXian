@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.dao.QuotationPojoMapper">
+  <resultMap id="BaseResultMap" type="com.zl.pojo.QuotationPojo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="quotationID" jdbcType="VARCHAR" property="quotationid" />
+    <result column="qName" jdbcType="VARCHAR" property="qname" />
+    <result column="adress" jdbcType="VARCHAR" property="adress" />
+    <result column="tel" jdbcType="CHAR" property="tel" />
+    <result column="purchaseID" jdbcType="VARCHAR" property="purchaseid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, quotationID, qName, adress, tel, purchaseID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from quotation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from quotation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zl.pojo.QuotationPojo">
+    insert into quotation (id, quotationID, qName, 
+      adress, tel, purchaseID
+      )
+    values (#{id,jdbcType=INTEGER}, #{quotationid,jdbcType=VARCHAR}, #{qname,jdbcType=VARCHAR}, 
+      #{adress,jdbcType=VARCHAR}, #{tel,jdbcType=CHAR}, #{purchaseid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.pojo.QuotationPojo">
+    insert into quotation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="quotationid != null">
+        quotationID,
+      </if>
+      <if test="qname != null">
+        qName,
+      </if>
+      <if test="adress != null">
+        adress,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="purchaseid != null">
+        purchaseID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="quotationid != null">
+        #{quotationid,jdbcType=VARCHAR},
+      </if>
+      <if test="qname != null">
+        #{qname,jdbcType=VARCHAR},
+      </if>
+      <if test="adress != null">
+        #{adress,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=CHAR},
+      </if>
+      <if test="purchaseid != null">
+        #{purchaseid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.pojo.QuotationPojo">
+    update quotation
+    <set>
+      <if test="quotationid != null">
+        quotationID = #{quotationid,jdbcType=VARCHAR},
+      </if>
+      <if test="qname != null">
+        qName = #{qname,jdbcType=VARCHAR},
+      </if>
+      <if test="adress != null">
+        adress = #{adress,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=CHAR},
+      </if>
+      <if test="purchaseid != null">
+        purchaseID = #{purchaseid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.pojo.QuotationPojo">
+    update quotation
+    set quotationID = #{quotationid,jdbcType=VARCHAR},
+      qName = #{qname,jdbcType=VARCHAR},
+      adress = #{adress,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=CHAR},
+      purchaseID = #{purchaseid,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
