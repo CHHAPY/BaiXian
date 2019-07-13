@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>采购-采购单详情页</title>
-    <link rel="stylesheet" href="css/public.css"/>
-    <link rel="stylesheet" href="css/page.css"/>
-    <link rel="stylesheet" href="css/member.css"/>
-    <link rel="stylesheet" href="css/banner.css"/>
-    <link rel="stylesheet" href="css/tab.css"/>
-    <link rel="stylesheet" href="css/table.css"/>
-    <link rel="stylesheet" href="css/select.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/font-awesome-ie7.css">
+    <link rel="stylesheet" href="/BaiXian/font/css/public.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/page.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/member.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/banner.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/tab.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/table.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/select.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/font-awesome-ie7.css"/>
     <!--[if lt IE 10]>
-    <script src="js/html5shiv.min.js"></script>
+    <script src="/BaiXian/font/js/html5shiv.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -274,9 +274,9 @@
                     </li>
                 </ul>
             </dt>
-            <dd><a href="index.html">首页</a></dd>
-            <dd><a href="resource.html">资源</a></dd>
-            <dd><a class="selected" href="purchase.html">采购</a></dd>
+            <dd><a class="selected" href="javascript:;" th:href="@{/gotoindex}">首页</a></dd>
+            <dd><a href="javascript:;" th:href="@{/gotoziyuan}">资源</a></dd>
+            <dd><a href="javascript:;" th:href="@{/gotoshop}">采购</a></dd>
             <dd><a href="javascript:;">搜索</a></dd>
             <dd><a href="javascript:;">物流</a></dd>
             <dd><a href="javascript:;">行情</a></dd>
@@ -307,29 +307,23 @@
                      <div class="detail-con">
                          <dl>
                             <dt>产品：</dt>
-                            <dd>鸡翅</dd>
+                            <dd th:text="${shoptype.stname}"></dd>
                             <dt>产地要求：</dt>
-                            <dd>澳洲、美洲、国内</dd>
+                            <dd th:text="${shoptype.stdress}"></dd>
                             <dt>规格型号：</dt>
-                            <dd>180g、200g、500g</dd>
+                            <dd th:text="${shoptype.stmodel}"></dd>
                             <dt>级别要求：</dt>
-                            <dd>B类以上</dd>
+                            <dd th:text="${shoptype.stlevel}"></dd>
                             <dt>仓库要求：</dt>
-                            <dd>国内仓库即可</dd>
-                            <dt>期/现货：</dt>
-                            <dd>现货</dd>
+                            <dd th:text="${shoptype.stdepository}"></dd>
                             <dt>价格要求：</dt>
-                            <dd>低于110元/千克</dd>
+                            <dd th:text="${shoptype.stprice}+' 以下'"></dd>
                             <dt>采购说明：</dt>
-                            <dd>说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容说明内容</dd>
-                            <dt>付款方式：</dt>
-                            <dd>预付订金30%</dd>
-                            <dt>发票类型：</dt>
-                            <dd>增值税发票</dd>
+                            <dd th:text="${shoptype.stshow}"></dd>
                             <dt>收货地址：</dt>
-                            <dd>广东省 深圳市 龙岗区 XXX工业园</dd>
+                            <dd th:text="${shoptype.staddress}"></dd>
                             <dt>采购截止时间：</dt>
-                            <dd>2015-07-01</dd>
+                            <dd th:text="${shoptype.stdate}"></dd>
                          </dl>
                      </div>
                 </div>
@@ -346,14 +340,14 @@
                             </div>
                             <dl>
                                 <dt>联系人：</dt>
-                                <dd><p>张**</p></dd>
+                                <dd><p th:text="${shoptype.stuname}"></p></dd>
                                 <dt>公司名称：</dt>
                                 <dd>
-                                    <p>深圳*******有限公司</p>
+                                    <p th:text="${shoptype.stcompany}"></p>
                                 </dd>
                                 <dt>手机号：</dt>
                                 <dd>
-                                    <p>138****5678</p>
+                                    <p th:text="${shoptype.stuphone}"></p>
                                 </dd>
                             </dl>
                         </div>
@@ -367,7 +361,7 @@
                      <div class="member-right">
                          <div class="controls">
                             <p>报价人：</p>
-                            <input type="text" class="input03 w320">
+                            <input type="text" class="input03 w320"/>
                         </div>
                      </div>
                      <div class="member-detailtit">选择商品：</div>
@@ -393,7 +387,7 @@
                                     <input type="text" class="input02 w125"/>
                                 </label>
                                 <div class="search-btn">
-                                    <input type="submit" class="btn03" value="检索">
+                                    <input type="submit" class="btn03" value="检索"/>
                                 </div>
                             </dd>
                         </dl>
@@ -462,7 +456,7 @@
                                     <td>180g</td>
                                     <td>A</td>
                                     <td>10000</td>
-                                    <td><input type="text" class="input05" value="90"></td>
+                                    <td><input type="text" class="input05" value="90"/></td>
                                     <td>RMB</td>
                                     <td>现货</td>
                                     <td>惠州</td>
@@ -492,9 +486,9 @@
                         </div>
                         <div class="controls">
                             <p>联系手机：</p>
-                            <input type="text" class="input03 w320">
+                            <input type="text" class="input03 w320"/>
                         </div>
-                        <input type="text" class="btn01 submit w155" value="提交报价">
+                        <input type="text" class="btn01 submit w155" value="提交报价"/>
                         <!-- 不是供应商 -->
                         <div class="no-gys">
                             <div class="no-tit"><i class="fa fa-exclamation-circle"></i>您还不是供应商，优质供应商才能参与报价</div>
@@ -559,9 +553,9 @@
         <p>Copyright <i class="fa fa-copyright"></i> 超鲜网 粤ICP备 13013915号-3  ICP证：粤B2-201401448</p>
     </div>
 </footer>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="js/global.js"></script>
-<script type="text/javascript" src="js/jquery.accordion.js"></script>
-<script type="text/javascript" src="js/jquery.selectBox.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/global.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/jquery.accordion.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/jquery.selectBox.js"></script>
 </body>
 </html>

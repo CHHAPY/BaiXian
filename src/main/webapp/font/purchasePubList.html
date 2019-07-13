@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>采购-发布采购单</title>
-    <link rel="stylesheet" href="css/public.css"/>
-    <link rel="stylesheet" href="css/page.css"/>
-    <link rel="stylesheet" href="css/member.css"/>
-    <link rel="stylesheet" href="css/banner.css"/>
-    <link rel="stylesheet" href="css/tab.css"/>
-    <link rel="stylesheet" href="css/table.css"/>
-    <link rel="stylesheet" href="css/select.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/font-awesome-ie7.css">
+    <link rel="stylesheet" href="/BaiXian/font/css/public.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/page.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/member.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/banner.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/tab.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/table.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/select.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/font-awesome-ie7.css"/>
     <!--[if lt IE 10]>
-    <script src="js/html5shiv.min.js"></script>
+    <script src="/BaiXian/font/js/html5shiv.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -274,9 +274,9 @@
                     </li>
                 </ul>
             </dt>
-            <dd><a href="index.html">首页</a></dd>
-            <dd><a href="resource.html">资源</a></dd>
-            <dd><a class="selected" href="purchase.html">采购</a></dd>
+            <dd><a class="selected" href="javascript:;" th:href="@{/gotoindex}">首页</a></dd>
+            <dd><a href="javascript:;" th:href="@{/gotoziyuan}">资源</a></dd>
+            <dd><a href="javascript:;" th:href="@{/gotoshop}">采购</a></dd>
             <dd><a href="javascript:;">搜索</a></dd>
             <dd><a href="javascript:;">物流</a></dd>
             <dd><a href="javascript:;">行情</a></dd>
@@ -301,119 +301,74 @@
             <div class="member-tit">
                 <p>发布采购单</p>
             </div>
+            <form action="/ShopType" method="post">
             <div class="proof">
                 <div class="member-right">
                     <div class="member-column">
                        <div class="controls">
                             <p>采购单名称：</p>
-                            <input type="text" class="input03 w320">
+                            <input type="text" name="stypename" class="input03 w320"/>
                         </div>
                          <div class="controls">
                             <p>采购物品：</p>
-                            <input type="text" class="input03 w320">
+                            <input type="text" name="stname" class="input03 w320"/>
                         </div>
                          <div class="controls">
                             <p>产地要求：</p>
-                            <input type="text" class="input03 w320">
+                            <input type="text" name="stdress" class="input03 w320"/>
                         </div>
                         <div class="controls">
                             <p>规格型号：</p>
-                            <input type="text" class="input03 w320">
+                            <input type="text"  name="stmodel" class="input03 w320"/>
                         </div>
                         <div class="controls">
                             <p>级别要求：</p>
-                            <input type="text" class="input03 w320">
+                            <input type="text" name="stlevel"  class="input03 w320"/>
                         </div>
                         <div class="controls">
                             <p>仓库要求：</p>
-                            <input type="text" class="input03 w320">
+                            <input type="text" name="stdepository"  class="input03 w320"/>
                         </div>
-                        <div class="controls">
-                            <p>期/现货：</p>
-                           <select class="w250">
-                                <option value="0">请选择</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                        </div>
+
                         <div class="controls">
                             <p>价格要求：</p>
-                            <select class="w125">
-                                <option value="0">请选择</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                            <input type="text" class="input03 w125">
+                            <input type="text" name="stprice"  class="input03 w125"/>
                             <i>元/千克</i>
                         </div>
+                        
                         <div class="controls">
                             <p>采购说明：</p>
-                            <div class="method-edit">
-                                <img src="images/member-edit02.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="controls">
-                            <p>付款方式：</p>
-                            <input type="text" class="input03 w320">
-                            <i>如预付款、货到付款、30%定金70%交货时付等</i>
-                        </div>
-                        <div class="controls">
-                            <p>发票类型：</p>
-                            <div class="controls-radio">
-                                 <input type="radio" name="radio02" class="radio">
-                                 <i>增值税发票</i>
-                            </div>
-                            <div class="controls-radio">
-                                 <input type="radio" name="radio02" class="radio">
-                                 <i>普通发票</i>
-                            </div>
+                            <textarea name="stshow" class="input03 w320"></textarea>
                         </div>
                         <div class="controls">
                             <p>收货地址：</p>
-                           <select class="w125">
-                                <option value="0">请选择</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                            <select class="w125">
-                                <option value="0">请选择</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                            <select class="w125">
-                                <option value="0">请选择</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
+                            <input type="text" name="staddress"  class="input03 w320"/>
                         </div>
                         <div class="controls">
                             <p>采购截止时间：</p>
-                            <input type="text" class="input03 w155">
+                            <input type="date"  name="stdate" class="input03 w155"/>
                         </div>
                     </div>
                     <div class="member-column">
                         <div class="member-subtit">联系方式</div>
                         <div class="controls">
                             <p>联系人：</p>
-                            <input type="text" class="input03 w320">
+                            <input type="text" name="stuname"  class="input03 w320"/>
                         </div>
                         <div class="controls">
                             <p>公司名称：</p>
-                            <input type="text" class="input03 w320">
+                            <input type="text" name="stcompany"  class="input03 w320"/>
                         </div>
                         <div class="controls">
                             <p>手机号：</p>
-                            <input type="text" class="input03 w320">
+                            <input type="text" name="stuphone"  class="input03 w320"/>
                         </div>
-                         <input type="text" class="btn01 submit w155" value="发布采购单">
+                         <input type="submit" class="btn01 submit w155" value="发布采购单"/>
                     </div>
                 </div>
+
             </div>
+            </form>
         </div>
     </div>
 </div>
@@ -467,9 +422,9 @@
         <p>Copyright <i class="fa fa-copyright"></i> 超鲜网 粤ICP备 13013915号-3  ICP证：粤B2-201401448</p>
     </div>
 </footer>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="js/global.js"></script>
-<script type="text/javascript" src="js/jquery.accordion.js"></script>
-<script type="text/javascript" src="js/jquery.selectBox.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/global.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/jquery.accordion.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/jquery.selectBox.js"></script>
 </body>
 </html>

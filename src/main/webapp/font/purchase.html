@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html charset="UTF-8" xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <meta charset="UTF-8">
+    <meta charset="UTF-8"/>
     <title>超鲜网-采购</title>
-    <link rel="stylesheet" href="css/public.css"/>
-    <link rel="stylesheet" href="css/page.css"/>
-    <link rel="stylesheet" href="css/banner.css"/>
-    <link rel="stylesheet" href="css/tab.css"/>
-    <link rel="stylesheet" href="css/table.css"/>
-    <link rel="stylesheet" href="css/select.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/font-awesome-ie7.css">
+    <link rel="stylesheet" href="/BaiXian/font/css/public.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/page.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/banner.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/tab.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/table.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/select.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/BaiXian/font/css/font-awesome-ie7.css"/>
     <!--[if lt IE 10]>
-    <script src="js/html5shiv.min.js"></script>
+    <script src="/font/js/html5shiv.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -273,9 +273,9 @@
                     </li>
                 </ul>
             </dt>
-            <dd><a href="index.html">首页</a></dd>
-            <dd><a href="resource.html">资源</a></dd>
-            <dd><a class="selected" href="purchase.html">采购</a></dd>
+            <dd><a class="selected" href="javascript:;" >首页</a></dd>
+            <dd><a href="javascript:;" >资源</a></dd>
+            <dd><a href="javascript:;" th:href="@{/shop/gotoshop}">采购</a></dd>
             <dd><a href="javascript:;">搜索</a></dd>
             <dd><a href="javascript:;">物流</a></dd>
             <dd><a href="javascript:;">行情</a></dd>
@@ -309,7 +309,7 @@
                             <dt>快速检索</dt>
                             <dd>
                                 <div class="search-form02">
-                                    <div class="input"><input type="text"></div>
+                                    <div class="input"><input type="text"/></div>
                                     <div class="button">
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                     </div>
@@ -317,98 +317,20 @@
                             </dd>
                         </dl>
                         <!-- 采购左边 -->
+                        <!--<h1 th:text="${shopTypes}"></h1>-->
                         <div class="purchase-left">
                             <dl>
-                                <dd>
+                                <dd th:each="shopType:${shopTypes}" >
                                     <i class="fa fa-comment"></i>
                                     <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
+                                        <a href="javascript:;" th:href="@{/shop/shopType/} + ${shopType.stid}" class="otw" th:text="${shopType.stypename}">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
+                                        <span class="goOn" th:text="${shopType.ststate==0}?'【进行中】':'【已完成】'">【进行中】</span>
                                     </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
+                                    <div class="user" th:text="${shopType.stuname}+'  于'+${shopType.sttime}+ '  发表'">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
+                                    <div class="intro" th:text="${shopType.stshow}">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
                                  </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
+
+
                              </dl>
                              <!-- page -->
                             <div class="list-page">
@@ -421,7 +343,7 @@
                                     <li><a href="javascript:;" class="omitted">...</a></li>
                                     <li><a href="javascript:;">100</a></li>
                                     <li><a href="javascript:;" class="next-listPage">下一页</a></li>
-                                    <li><span>到第</span><input type="text"><span>页</span></li>
+                                    <li><span>到第</span><input type="text"/><span>页</span></li>
                                     <li><a href="javascript:;" class="jump-page">确定</a></li>
                                 </ul>
                             </div>
@@ -429,7 +351,7 @@
                         <!-- 采购右边 -->
                         <div class="purchase-right">
                            <!-- 发布清单按钮 -->
-                           <a href="purchasePubList.html" class="btn05"><i class="fa fa-file-text-o"></i>我要发布采购清单</a>
+                           <a href="javascript:;" th:href="@{/shop/gotoshoptype}" class="btn05"><i class="fa fa-file-text-o"></i>我要发布采购清单</a>
                            <!-- 热门采购单 -->
                            <div class="inventory">
                                <div class="tit">热门采购清单</div>
@@ -437,93 +359,20 @@
                                    <dd class="txtScroll-top">
                                         <div class="bd">
                                             <ul>
-                                                <li><a href="purchaseDetails.html">
-                                                    <div class="name">我想要采购1三文鱼.....</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                 <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
+                                                <li th:each="shopType:${shopTypes}"  >
+                                                    <a href="javascript:;"  th:href="@{/shop/shopType/} + ${shopType.stid}"  >
+                                                        <div class="name" th:text="${shopType.stypename}" >我想要采购1吨进口的鸡翅...</div>
+                                                        <div class="state"><span class="goOn" th:text="${shopType.ststate==0}?'【进行中】':'【已完成】'">【未完成】</span></div>
+                                                    </a>
+                                                </li>
+
                                             </ul>
                                         </div>
                                    </dd>
                                </dl>
                             </div>
                             <!-- 资源广告 -->
-                            <a href="javascript:;" class="purchase-add"><img src="images/purchase-add01.jpg" alt=""></a>
+                            <a href="javascript:;" class="purchase-add"><img src="images/purchase-add01.jpg" alt=""/></a>
                         </div>
                     </div>
                     <div class="child-content" style="display: none;">
@@ -531,7 +380,7 @@
                             <dt>快速检索</dt>
                             <dd>
                                 <div class="search-form02">
-                                    <div class="input"><input type="text"></div>
+                                    <div class="input"><input type="text"/></div>
                                     <div class="button">
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                     </div>
@@ -541,96 +390,17 @@
                         <!-- 采购左边 -->
                         <div class="purchase-left">
                             <dl>
-                                <dd>
+                                <dd th:each="shopType:${shopTypes}" th:if="${shopType.ststate==0}">
                                     <i class="fa fa-comment"></i>
                                     <div class="tit">
-                                        <a href="purchaseDetails.html" class="otw">我想要采购1吨进口的鸡翅</a>
+                                        <a href="javascript:;" th:href="@{/shop/shopType/} + ${shopType.stid}" th:text="${shopType.stypename}" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
                                         <span class="goOn">【进行中】</span>
                                     </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
+                                    <div class="user" th:text="${shopType.stuname}+'  于'+${shopType.sttime}+ '  发表'">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
+                                    <div class="intro" th:text="${shopType.stshow}">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
                                  </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="purchaseDetails.html" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
+
+
                              </dl>
                              <!-- page -->
                             <div class="list-page">
@@ -643,7 +413,7 @@
                                     <li><a href="javascript:;" class="omitted">...</a></li>
                                     <li><a href="javascript:;">100</a></li>
                                     <li><a href="javascript:;" class="next-listPage">下一页</a></li>
-                                    <li><span>到第</span><input type="text"><span>页</span></li>
+                                    <li><span>到第</span><input type="text"/><span>页</span></li>
                                     <li><a href="javascript:;" class="jump-page">确定</a></li>
                                 </ul>
                             </div>
@@ -659,93 +429,20 @@
                                    <dd class="txtScroll-top">
                                         <div class="bd">
                                             <ul>
-                                                <li><a href="purchaseDetails">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                 <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
+                                                <li th:each="shopType:${shopTypes}" th:if="${shopType.ststate==0}" >
+                                                    <a href="javascript:;"  th:href="@{/shop/shopType/} + ${shopType.stid}"  >
+                                                        <div class="name" th:text="${shopType.stypename}" >我想要采购1吨进口的鸡翅...</div>
+                                                        <div class="state"><span class="goOn">【未完成】</span></div>
+                                                    </a>
+                                                </li>
+
                                             </ul>
                                         </div>
                                    </dd>
                                </dl>
                             </div>
                             <!-- 资源广告 -->
-                            <a href="javascript:;" class="purchase-add"><img src="images/purchase-add01.jpg" alt=""></a>
+                            <a href="javascript:;" class="purchase-add"><img src="images/purchase-add01.jpg" alt=""/></a>
                         </div>
                     </div>
                     <div class="child-content" style="display: none;">
@@ -753,7 +450,7 @@
                             <dt>快速检索</dt>
                             <dd>
                                 <div class="search-form02">
-                                    <div class="input"><input type="text"></div>
+                                    <div class="input"><input type="text"/></div>
                                     <div class="button">
                                         <button type="submit"><i class="fa fa-search"></i></button>
                                     </div>
@@ -763,96 +460,16 @@
                         <!-- 采购左边 -->
                         <div class="purchase-left">
                             <dl>
-                                <dd>
+                                <dd th:each="shopType:${shopTypes}" th:if="${shopType.ststate==1}">
                                     <i class="fa fa-comment"></i>
                                     <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
+                                        <a href="javascript:;" th:href="@{/shop/shopType/} + ${shopType.stid}" th:text="${shopType.stypename}"  class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
+                                        <span class="goOn">【已完成】</span>
                                     </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
+                                    <div class="user" th:text="${shopType.stuname}+'  于'+${shopType.sttime}+ '  发表'">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
+                                    <div class="intro" th:text="${shopType.stshow}" >简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
                                  </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
-                                 <dd>
-                                    <i class="fa fa-comment"></i>
-                                    <div class="tit">
-                                        <a href="javascript:;" class="otw">我想要采购1吨进口的鸡翅我想要采购1吨进口的鸡翅我想要采购1吨</a>
-                                        <span class="goOn">【进行中】</span>
-                                    </div>
-                                    <div class="user">lrxl***&nbsp;&nbsp;&nbsp;于2015-5-4 16:38 发表</div>
-                                    <div class="intro">简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明简要说明···</div>
-                                 </dd>
+
                              </dl>
                              <!-- page -->
                             <div class="list-page">
@@ -865,7 +482,7 @@
                                     <li><a href="javascript:;" class="omitted">...</a></li>
                                     <li><a href="javascript:;">100</a></li>
                                     <li><a href="javascript:;" class="next-listPage">下一页</a></li>
-                                    <li><span>到第</span><input type="text"><span>页</span></li>
+                                    <li><span>到第</span><input type="text"/><span>页</span></li>
                                     <li><a href="javascript:;" class="jump-page">确定</a></li>
                                 </ul>
                             </div>
@@ -881,93 +498,20 @@
                                    <dd class="txtScroll-top">
                                         <div class="bd">
                                             <ul>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                 <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
-                                                <li><a href="javascript:;">
-                                                    <div class="name">我想要采购1吨进口的鸡翅...</div>
-                                                    <div class="state"><span class="goOn">【进行中】</span></div>
-                                                </a></li>
+                                                <li th:each="shopType:${shopTypes}" th:if="${shopType.ststate==1}" >
+                                                    <a href="javascript:;"  th:href="@{/shop/shopType/} + ${shopType.stid}"  >
+                                                    <div class="name" th:text="${shopType.stypename}" >我想要采购1吨进口的鸡翅...</div>
+                                                    <div class="state"><span class="goOn">【已完成】</span></div>
+                                                </a>
+                                                </li>
+
                                             </ul>
                                         </div>
                                    </dd>
                                </dl>
                             </div>
                             <!-- 资源广告 -->
-                            <a href="javascript:;" class="purchase-add"><img src="images/purchase-add01.jpg" alt=""></a>
+                            <a href="javascript:;" class="purchase-add"><img src="images/purchase-add01.jpg" alt=""/></a>
                         </div>
                         
                     </div>
@@ -1026,11 +570,11 @@
         <p>Copyright <i class="fa fa-copyright"></i> 超鲜网 粤ICP备 13013915号-3  ICP证：粤B2-201401448</p>
     </div>
 </footer>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
-<script type="text/javascript" src="js/global.js"></script>
-<script type="text/javascript" src="js/jquery.accordion.js"></script>
-<script type="text/javascript" src="js/select.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/global.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/jquery.accordion.js"></script>
+<script type="text/javascript" src="/BaiXian/font/js/select.js"></script>
 <script type="text/javascript">
     jQuery("#bannerIndex").slide({mainCell:".bd ul",autoPlay:true});
     jQuery(".banner-quotes01").each(function(){
