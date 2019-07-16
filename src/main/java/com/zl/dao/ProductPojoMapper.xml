@@ -13,11 +13,12 @@
     <result column="warehouse" jdbcType="VARCHAR" property="warehouse" />
     <result column="proStatus" jdbcType="INTEGER" property="prostatus" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
-    <result column="sourceId" jdbcType="INTEGER" property="sourceid" />
+    <result column="classId" jdbcType="INTEGER" property="classId" />
+    <result column="sourceId" jdbcType="INTEGER" property="sourceId" />
   </resultMap>
   <sql id="Base_Column_List">
     id, name, area, type, rank, count, price, currency, warehouse, proStatus, remark, 
-    sourceId
+    classId, sourceId
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -33,12 +34,13 @@
     insert into product (id, name, area, 
       type, rank, count, 
       price, currency, warehouse, 
-      proStatus, remark, sourceId
+      proStatus, remark, classId, sourceId
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
       #{type,jdbcType=VARCHAR}, #{rank,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, 
       #{price,jdbcType=DECIMAL}, #{currency,jdbcType=VARCHAR}, #{warehouse,jdbcType=VARCHAR}, 
-      #{prostatus,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{sourceid,jdbcType=INTEGER}
+      #{proStatus,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{classId,jdbcType=INTEGER},
+      #{sourceId,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zl.pojo.ProductPojo">
@@ -77,8 +79,8 @@
       <if test="remark != null">
         remark,
       </if>
-      <if test="sourceid != null">
-        sourceId,
+       <if test="classid != null">
+        classId
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -115,8 +117,8 @@
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="sourceid != null">
-        #{sourceid,jdbcType=INTEGER},
+       <if test="classid != null">
+        #{classid,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>

@@ -68,4 +68,7 @@
       bcId = #{bcid,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <select id="selectProc" resultMap="BaseResultMap">
+  select * from productclass
+  </select>
 </mapper>
