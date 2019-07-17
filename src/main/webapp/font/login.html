@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+	<base href="<%=basePath%>">
     <meta charset="UTF-8">
     <title>超鲜网-登录页</title>
     <link rel="stylesheet" href="css/public.css"/>
@@ -15,16 +16,43 @@
     <!--[if lt IE 10]>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+<script type="text/javascript" src="js/jquery.accordion.js"></script>
+<script type="text/javascript" src="js/select.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+    		$("#loginBut").click(function(){
+    			$.ajax({
+    				url:"/BaiXian/user/login",
+    				type:"post",
+    				dataType:"json",
+    				data:{"name":$("#name").val(),"pad":$("#pad").val()},
+    				success:function(data){
+    					if(data==1){
+    						location.href="index.html";
+    					}else{
+    						$("#error").html("用户名或密码错误！");
+    					}
+    				},
+					error:function(data){
+						alert("请求失败。。。");
+					}
+    			});
+    		});
+    	})
+    </script>
 </head>
 <body>
 <!--网站顶部-->
 <div class="top">
+
     <div class="container">
         <div class="top-left">
             <p>欢迎来到超鲜网</p>
             <a href="javascript:;">请登录</a>
             <span>|</span>
-            <a href="javascript:;">免费注册</a>
+            <a href="register01.html">免费注册</a>
         </div>
         <div class="top-right">
             <ul>
@@ -88,8 +116,8 @@
                 <a class="pro-all" href="javascript:;">商品全部分类&nbsp;&nbsp;<i class="fa fa-sort-desc fa-caret-up"></i></a>
             </dt>
             <dd><a class="selected" href="index.html">首页</a></dd>
-            <dd><a href="javascript:;">资源</a></dd>
-            <dd><a href="javascript:;">采购</a></dd>
+            <dd><a href="resourceUploadList.html">资源</a></dd>
+            <dd><a href="resourcePreview.html">采购</a></dd>
             <dd><a href="javascript:;">搜索</a></dd>
             <dd><a href="javascript:;">物流</a></dd>
             <dd><a href="javascript:;">行情</a></dd>
@@ -103,9 +131,9 @@
     <div class="container">
         <!-- 面包屑导航 -->
         <div class="bread-crumbs">
-            <a href="javascript:;">首页</a>
+            <a href="index.html">首页</a>
             <span><i class="fa fa-angle-double-right"></i></span>
-            <a href="javascript:;" class="selected">登录</a>
+            <a href="login.html" class="selected">登录</a>
         </div>
         <div class="content-reg">
             <!-- 登录表单 -->
@@ -116,25 +144,29 @@
                 </div>
                 <!-- 登录右 -->
                 <div class="login-right">
-                    <form action="">
+                   <!--  <form action="user/login" method="post"> -->
                         <div class="controls">
                             <div class="login-controls">
                                 <p>用户名：</p>
                                 <div class="login-tools">未注册用户<i class="fa fa-angle-double-right"></i> 
-                                    <a href="javascript:;">注册</a>
+                                    <a href="register01.html">注册</a>
                                 </div>
                             </div>
-                            <input type="text" class="input03 w400">
+                            <input type="text" id="name" class="input03 w400">
                         </div>
+                        
                         <div class="controls">
                             <div class="login-controls">
                                 <p>密码：</p>
                                 <div class="login-tools">
-                                    <a href="javascript:;">忘记密码</a>
+                                    <a href="retrievePad.html">忘记密码</a>
                                 </div>
                             </div>
-                            <input type="text" class="input03 w400">
+                            <input type="password" id="pad" class="input03 w400">
                         </div>
+                        
+                        <font id="error" size="1" color="red"></font>
+                        
                         <div class="controls">
                             <div class="login-controls">
                                 <p>验证码：</p>
@@ -144,9 +176,11 @@
                             <a href="javascript:;" class="code-change">换一张</a>
                         </div>
                         <div class="controls">
-                            <input type="button" value="登录" class="btn07 w400">
+                            <button id="loginBut"class="btn07 w400">登录</button>
+                        
                         </div>
-                    </form>
+                         
+                    <!-- </form> -->
                 </div>
             </div>
         </div>
@@ -202,9 +236,6 @@
         <p>Copyright <i class="fa fa-copyright"></i> 超鲜网 粤ICP备 13013915号-3  ICP证：粤B2-201401448</p>
     </div>
 </footer>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="js/global.js"></script>
-<script type="text/javascript" src="js/jquery.accordion.js"></script>
-<script type="text/javascript" src="js/select.js"></script>
+
 </body>
 </html>
