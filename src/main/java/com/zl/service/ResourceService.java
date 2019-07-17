@@ -13,5 +13,5 @@ import com.zl.pojo.ProductPojo;
 public interface ResourceService {
 	public List<ProductClassPojo> selectProc();
 	public int addPro(ProductPojo pro,Date date);
-	public Date addSource(String explains);
+	public Date addSource(String explains,int id);
 }

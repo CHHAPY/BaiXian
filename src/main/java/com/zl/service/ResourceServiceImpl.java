@@ -40,11 +40,11 @@ public class ResourceServiceImpl implements ResourceService {
 	}
 	
 	@Override
-	public Date addSource(String explains) {
+	public Date addSource(String explains,int id) {
 		SourcePojo s=new SourcePojo();
 		Date date=new Date();
 		s.setCreatedate(date);
-		s.setComid(3);
+		s.setComid(id);
 		s.setExplains(explains);
 		sm.insert(s);
 		return date;

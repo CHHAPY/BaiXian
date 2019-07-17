@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,8 +30,9 @@ public class ResourceController {
 	
 	@RequestMapping("/addPro")
 	@ResponseBody
-	public int addPro(ProductPojo pro,String explains){
-		Date date=rs.addSource(explains);
+	public int addPro(ProductPojo pro,String explains,HttpSession session){
+		int id=(int) session.getAttribute("id");
+		Date date=rs.addSource(explains,id);
 		return rs.addPro(pro,date);
 		
 	}
