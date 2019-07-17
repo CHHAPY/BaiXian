@@ -16,6 +16,118 @@
   <sql id="Blob_Column_List">
     explains
   </sql>
+  
+  <!-- 查询所有的资源单 -->
+  <select id="selSources" parameterType="selSourcesInfo" resultType="SourceInfo">
+  	select distinct source.id id,source.explains explains,source.createDate createDate
+	from product inner join source on product.sourceid=source.id inner join company on source.comid=company.id
+	inner join productclass on product.classid=productclass.id inner join bigclass on productclass.bcid=bigclass.id
+	<where>
+		<if test="comName != null and comName != ''">
+			company.name like concat('%',#{comName},'%')
+		</if>
+		<if test="area != null and area != ''">
+			and product.area like concat('%',#{area},'%')
+		</if>
+		<if test="productName != null and productName != ''">
+			and product.name like concat('%',#{productName},'%')
+		</if>
+		<if test="mainClass != null and mainClass != ''">
+			and bigclass.mcid in
+			<foreach collection="mainClass" index="index" item="item" 
+				open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+	</where>
+	limit #{curPage},#{pageSize}
+  </select>
+  <!-- 查询所有的资源单总条数 -->
+  <select id="selTotal" parameterType="selSourcesInfo" resultType="int">
+  	select count(distinct source.id)
+	from product inner join source on product.sourceid=source.id inner join company on source.comid=company.id
+	inner join productclass on product.classid=productclass.id inner join bigclass on productclass.bcid=bigclass.id
+	<where>
+		<if test="comName != null and comName != ''">
+			company.name like concat('%',#{comName},'%')
+		</if>
+		<if test="area != null and area != ''">
+			and product.area like concat('%',#{area},'%')
+		</if>
+		<if test="productName != null and productName != ''">
+			and product.name like concat('%',#{productName},'%')
+		</if>
+		<if test="mainClass != null and mainClass != ''">
+			and bigclass.mcid in
+			<foreach collection="mainClass" index="index" item="item" 
+				open="(" separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+	</where>
+  </select>
+	<!-- where company.name like concat('%','卢威','%') and product.area like concat('%','上海','%') 
+	and product.name like concat('%','牛','%') and bigclass.mcid in(1,2) -->
+  
+  <!-- 查询公司名 -->
+  <select id="selComName" parameterType="int" resultType="String">
+  	select c.name from source s left join company c on s.comID=c.id where s.id=#{id};
+  </select>
+  <!-- 查询大类集合 -->
+  <select id="selBCName" parameterType="int" resultType="String">
+  	select bigclass.name from product left join source on product.sourceId=source.id
+	left join productclass on product.classID=productclass.id
+	left join bigclass on productclass.bcId=bigclass.id 
+	where source.id=#{id};
+  </select>
+  <!-- 查询主营集合 -->
+  <select id="selProName" parameterType="int" resultType="String">
+  	select productclass.name from product left join productclass on productclass.id=product.classID 
+	left join source on product.sourceId=source.id
+	where source.id=#{id};
+  </select>
+  
+  <!-- 查询公司 -->
+  <select id="selCom" parameterType="int" resultType="companyPojo">
+  	select c.name,concat(c.localtion,' ',c.adress)as adress,c.makerTel from company c
+		left join source on source.comID=c.id where source.id=#{id};
+  </select>
+  <!-- 查询资源单包含的所有产品 -->
+  <select id="selProBySID" parameterType="int" resultType="ProductPojo">
+  	select id,name,area,type,rank,count,price,currency,warehouse,
+  		proStatus,remark from product where sourceID=#{id} limit #{curPage},#{pageSize};
+  </select>
+  
+  <!-- 查询资源单说明 -->
+  <select id="selExplains" parameterType="int" resultType="String">
+  	select explains from source where id=#{id};
+  </select>
+  
+  
+  <!-- 资源单详情页 条件查询资源单包含的所有产品 -->
+  <select id="selPart" parameterType="selPartPojo" resultType="ProductPojo">
+  	select id,name,area,type,rank,count,price,currency,warehouse,
+  		proStatus,remark from product where sourceID=#{id}
+  		<if test="pname != null and pname != '' ">
+  			and name like concat('%',#{pname},'%')
+  		</if>
+  		<if test="area != null and area != '' ">
+  			and area like concat('%',#{area},'%')
+  		</if>
+  		limit #{curPage},#{pageSize}
+  </select>
+  <!-- 资源单详情页 条件查询资源单包含的所有产品 总的条数-->
+  <select id="selPartTotal" parameterType="selPartPojo" resultType="int">
+  	select count(id) from product where sourceID=#{id}
+  		<if test="pname != null and pname != '' ">
+  			and name like concat('%',#{pname},'%')
+  		</if>
+  		<if test="area != null and area != '' ">
+  			and area like concat('%',#{area},'%')
+  		</if>
+  </select>
+  
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
     select 
     <include refid="Base_Column_List" />

@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>升级会员-升级采供商-公司</title>
+    <title>升级会员</title>
     <link rel="stylesheet" href="css/public.css"/>
     <link rel="stylesheet" href="css/page.css"/>
     <link rel="stylesheet" href="css/member.css"/>
@@ -292,13 +292,7 @@
         <div class="bread-crumbs">
             <a href="javascript:;">首页</a>
             <span><i class="fa fa-angle-double-right"></i></span>
-            <a href="javascript:;">会员中心</a>
-            <span><i class="fa fa-angle-double-right"></i></span>
-            <a href="javascript:;">升级会员</a>
-            <span><i class="fa fa-angle-double-right"></i></span>
-            <a href="javascript:;">升级采购商</a>
-            <span><i class="fa fa-angle-double-right"></i></span>
-            <a href="javascript:;" class="selected">公司</a>
+            <a href="javascript:;" class="selected">升级会员</a>
         </div>
         <!-- 会员左侧 -->
         <div class="member-left">
@@ -313,8 +307,8 @@
                 <dd>
                     <a href="javascript:;" class="menuPro-first selected"><i class="fa fa-plus-square"></i>升级会员</a>
                     <div class="menuPro-second">
-                        <a href="javascript:;" class="selected"><i class="fa fa-angle-right"></i>升级供应商</a>
-                        <a href="javascript:;"><i class="fa fa-angle-right"></i>升级采购商</a>
+                        <a href="member_upgradeSupplier.html"><i class="fa fa-angle-right"></i>升级供应商</a>
+                        <a href="member_upgradePurchase.html"><i class="fa fa-angle-right"></i>升级采购商</a>
                         <a href="javascript:;"><i class="fa fa-angle-right"></i>升级承运方</a>
                         <a href="javascript:;"><i class="fa fa-angle-right"></i>升级托运方</a>
                         <a href="javascript:;"><i class="fa fa-angle-right"></i>提交成功</a>
@@ -345,122 +339,52 @@
          </div>
          <!-- 会员右侧 -->
          <div class="member-right">
+            <!-- 会员升级 -->
+            <div class="member-upgrade">
+                <img src="images/member-upgrade01.png" alt="">
+            </div>
             <div class="member-main">
                 <div class="member-column">
-                    <div class="member-tit"><p>升级采购商</p> <a href="javascript:;" style="color:#e42122;">说明：认证过其他级别后，已经提交的信息自动读取过来不需要填写第二次</a></div>
+                    <div class="member-tit"><p>我想认证成为</p></div>
                      <div class="member-con">
-                        <div class="member-subtit">基本信息填写</div>
-                        <div class="controls">
-                            <p><span>*</span>公司名称：</p>
-                            <input type="text" class="input03 w450">
-                        </div>
-                        <div class="controls">
-                            <p><span>*</span>所在地：</p>
-                            <select class="w146">
-                                <option value="0">请选择</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                            <select class="w146">
-                                <option value="0">请选择</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                            <select class="w146">
-                                <option value="0">请选择</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                            </select>
-                        </div>
-                        <div class="controls">
-                            <p><span>*</span>详细地址：</p>
-                            <input type="text" class="input03 w450">
-                        </div>
-                        <div class="controls">
-                            <p><span>*</span>证件上传：</p>
-                            <div class="upload-controls">
-                                <div class="upload-img sfz-img"><img src="images/upload-img02.png" alt=""></div>
-                                <input type="button" value="点击上传营业执照" class="upload-btn w148">
-                            </div>
-                            <div class="upload-controls">
-                                <div class="upload-img sfz-img"><img src="images/upload-img02.png" alt=""></div>
-                                <input type="button" value="组织机构代码" class="upload-btn w148">
-                            </div>
-                             <div class="upload-controls">
-                                <div class="upload-img sfz-img"><img src="images/upload-img02.png" alt=""></div>
-                                <input type="button" value="税务登记证" class="upload-btn w148">
-                            </div>
-                             <div class="upload-controls">
-                                <div class="upload-img sfz-img"><img src="images/upload-img02.png" alt=""></div>
-                                <input type="button" value="办公场所图片" class="upload-btn w148">
-                            </div>
-                             <div class="upload-controls">
-                                <div class="upload-img sfz-img"><img src="images/upload-img02.png" alt=""></div>
-                                <input type="button" value="食品流通许可证" class="upload-btn w148">
-                            </div>
-                             <div class="member-tips">需加盖公章、清晰无涂抹的jpg格式文件(文件大小最大3M。也支持gif/png格式，但建议转换为jpg后再上传)
-                             </div>
-                        </div>
-                        <div class="controls">
-                            <p><span>*</span>其他证件上传：</p>
-                            <div class="upload-controls">
-                                <div class="upload-img sfz-img"><img src="images/upload-img02.png" alt=""></div>
-                                <input type="button" value="上传图片" class="upload-btn w148">
-                            </div>
-                            <div class="upload-controls">
-                                <div class="upload-img sfz-img"><img src="images/upload-img02.png" alt=""></div>
-                                <input type="button" value="上传图片" class="upload-btn w148">
-                            </div>
-                             <div class="upload-controls">
-                                <div class="upload-img sfz-img"><img src="images/upload-img02.png" alt=""></div>
-                                <input type="button" value="上传图片" class="upload-btn w148">
-                            </div>
-                             <div class="upload-controls">
-                                <div class="upload-img sfz-img"><img src="images/upload-img02.png" alt=""></div>
-                                <input type="button" value="上传图片" class="upload-btn w148">
-                            </div>
-                             <div class="upload-controls">
-                                <div class="upload-img sfz-img"><img src="images/upload-img02.png" alt=""></div>
-                                <input type="button" value="上传图片" class="upload-btn w148">
-                            </div>
-                        </div>
-                        <div class="controls">
-                            <p><span>*</span>企业法人姓名：</p>
-                            <input type="text" class="input03 w250">
-                        </div>
-                        <div class="member-subtit">授权运营者信息填写</div>
-                        <div class="controls">
-                            <p><span>*</span>运营者姓名：</p>
-                            <input type="text" class="input03 w250">
-                        </div>
-                        <div class="controls">
-                            <p><span>*</span>运营者职务：</p>
-                            <input type="text" class="input03 w250">
-                        </div>
-                        <div class="controls">
-                            <p><span>*</span>运营者联系方式：</p>
-                            <input type="text" class="input03 w250">
-                        </div>
-                        <div class="controls">
-                            <div class="member-tips">授权运营书：请下载授权运营书按要求填写表格后，上传加盖公章的扫描件支持.jpg .jpeg .bmp .gif格式照片，大小不超过2M。
-                            </div>
-                            <div class="warrant-btn">
-                                 <a href="javascript:;" class="btn01 w125">下载授权书</a>
-                                 <a href="javascript:;" class="btn01 w125">上传授权书</a>
-                            </div>
-                        </div>
-                        <div class="controls">
-                            <div class="provision">
-                                <input type="checkbox">
-                                <div class="provision-tip">
-                                    我已阅读并统一《<a href="javascript:;">供应商注册协议</a>》
+                        <ul class="upgrade-list">
+                            <li>
+                                <div class="img">
+                                    <img src="images/upgrade-icon01.png" alt="">
                                 </div>
-                            </div>
-                        </div>
-                        <input type="submit" value="提交审核" class="btn01 submit w155">
+                                <div class="con">
+                                   <p>认证成为供应商之后可以在线发布自己的资源单，商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单，商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单。商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单。</p>
+                                   <a href="member_upgradeSupplier.html" class="btn01">立即认证</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img">
+                                    <img src="images/upgrade-icon02.png" alt="">
+                                </div>
+                                <div class="con">
+                                   <p>认证成为供应商之后可以在线发布自己的资源单，商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单，商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单。商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单。</p>
+                                   <a href="member_upgradePurchase.html" class="btn01">立即认证</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img">
+                                    <img src="images/upgrade-icon03.png" alt="">
+                                </div>
+                                <div class="con">
+                                   <p>认证成为供应商之后可以在线发布自己的资源单，商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单，商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单。商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单。</p>
+                                   <a href="javascript:;" class="btn01">立即认证</a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="img">
+                                    <img src="images/upgrade-icon04.png" alt="">
+                                </div>
+                                <div class="con">
+                                   <p>认证成为供应商之后可以在线发布自己的资源单，商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单，商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单。商品信息发布更新将不再繁琐，认证成为供应商之后可以在线发布自己的资源单。</p>
+                                   <a href="javascript:;" class="btn01">立即认证</a>
+                                </div>
+                            </li>
+                        </ul>
                      </div>
                 </div>
             </div>

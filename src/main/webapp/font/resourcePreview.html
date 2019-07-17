@@ -298,36 +298,19 @@
         <div class="content-main">
             <!-- 搜索列表 -->
             <div class="search-form01">
-                <dl>
-                    <dt>城市：</dt>
-                    <dd><span>广州</span><span>深圳</span><span>珠海</span><span>广州</span><span>深圳</span><span>珠海</span><span>广州</span><span>深圳</span><span>珠海</span><span>广州</span><span>深圳</span><span>珠海</span><span>广州</span><span>深圳</span><span>珠海</span><span>广州</span><span>深圳</span><span>珠海</span><span>广州</span><span>深圳</span><span>珠海</span><span>广州</span><span>深圳</span><span>珠海</span><span>广州</span><span>深圳</span><span>珠海</span>
-                    </dd>
-                </dl>
-                 <dl>
-                    <dt>分类：</dt>
-                    <dd><span>冻肉类</span><span>肉类</span><span>禽类</span><span>调理品</span><span>其它冻肉类</span><span>速冻食品类</span></dd>
-                </dl>
                  <dl>
                     <dt>检索：</dt>
                     <dd>
                         <label for="">
                             <p>产品名称：</p>
-                            <input type="text" class="input02 w125"/>
-                        </label>
-                        <label for="">
-                            <p>公司名称：</p>
-                            <input type="text" class="input02 w125"/>
-                        </label>
-                        <label for="">
-                            <p>产品名称：</p>
-                            <input type="text" class="input02 w125"/>
+                            <input type="text" class="input02 w125" id="pname"/>
                         </label>
                         <label for="">
                             <p>产地：</p>
-                            <input type="text" class="input02 w125"/>
+                            <input type="text" class="input02 w125" id="area"/>
                         </label>
                         <div class="search-btn">
-                            <input type="submit" class="btn03" value="检索">
+                            <input type="submit" class="btn03" value="检索" id="selPart">
                         </div>
                     </dd>
                 </dl>
@@ -336,19 +319,19 @@
             <div class="zy-infor">
                 <dl>
                     <dt>公司名称：</dt>
-                    <dd>漯河市嘉沣商贸有限公司</dd>
+                    <dd id="cname"></dd>
                 </dl>
                 <dl>
                     <dt>公司地址：</dt>
-                    <dd>漯河市XXX区小XXX路冷链工业园</dd>
+                    <dd id="adress"></dd>
                 </dl>
                 <dl>
                     <dt>联系电话：</dt>
-                    <dd>0755-12345786   0755-12345786</dd>
+                    <dd id="tel"></dd>
                 </dl>
                 <dl>
                     <dt>资源单说明：</dt>
-                    <dd>资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明资源单说明</dd>
+                    <dd id="explains"></dd>
                 </dl>
             </div>
                <!-- 搜索表格 -->
@@ -358,19 +341,19 @@
                             <tr>
                                 <th>产品名称</th>
                                 <th>产地</th>
-                                <th style="width:100px;">品牌</th>
+                                <!-- <th style="width:100px;">品牌</th> -->
                                 <th>规格型号</th>
                                 <th>级别</th>
                                 <th>数量(KG)</th>
                                 <th>单价</th>
                                 <th>货币</th>
-                                <th>波动</th>
+                                <th>仓库</th>
                                 <th>期/现货</th>
-                                <th style="width:170px">供应商</th>
-                                <th>操作</th>
+                                <th style="width:170px">备注</th>
+                                <th style="width:100px">操作</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="showData">
                             <tr>
                                 <td>牛肉卷</td>
                                 <td>澳洲</td>
@@ -383,190 +366,22 @@
                                 <td>+3.8%</td>
                                 <td>现货</td>
                                 <td>洛阳众品食业有限公司</td>
-                                <td>
-                                    <a class="btn04" href="javascript:;">查看详情</a>
-                                    <a class="btn04" href="javascript:;">加入购物车</a>
-                                    <a class="btn04" href="javascript:;">收藏</a>
-                                </td>
                             </tr>
-                            <tr>
-                                <td>牛肉卷</td>
-                                <td>澳洲</td>
-                                <td>唐人基</td>
-                                <td>120g</td>
-                                <td>A级</td>
-                                <td>2000000</td>
-                                <td>RMB</td>
-                                <td>58.00</td>
-                                <td>+3.8%</td>
-                                <td>现货</td>
-                                <td>洛阳众品食业有限公司</td>
-                                <td>
-                                    <a class="btn04" href="javascript:;">查看详情</a>
-                                    <a class="btn04" href="javascript:;">加入购物车</a>
-                                    <a class="btn04" href="javascript:;">收藏</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>牛肉卷</td>
-                                <td>澳洲</td>
-                                <td>唐人基</td>
-                                <td>120g</td>
-                                <td>A级</td>
-                                <td>2000000</td>
-                                <td>RMB</td>
-                                <td>58.00</td>
-                                <td>+3.8%</td>
-                                <td>现货</td>
-                                <td>洛阳众品食业有限公司</td>
-                                <td>
-                                    <a class="btn04" href="javascript:;">查看详情</a>
-                                    <a class="btn04" href="javascript:;">加入购物车</a>
-                                    <a class="btn04" href="javascript:;">收藏</a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>牛肉卷</td>
-                                <td>澳洲</td>
-                                <td>唐人基</td>
-                                <td>120g</td>
-                                <td>A级</td>
-                                <td>2000000</td>
-                                <td>RMB</td>
-                                <td>58.00</td>
-                                <td>+3.8%</td>
-                                <td>现货</td>
-                                <td>洛阳众品食业有限公司</td>
-                                <td>
-                                    <a class="btn04" href="javascript:;">查看详情</a>
-                                    <a class="btn04" href="javascript:;">加入购物车</a>
-                                    <a class="btn04" href="javascript:;">收藏</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>牛肉卷</td>
-                                <td>澳洲</td>
-                                <td>唐人基</td>
-                                <td>120g</td>
-                                <td>A级</td>
-                                <td>2000000</td>
-                                <td>RMB</td>
-                                <td>58.00</td>
-                                <td>+3.8%</td>
-                                <td>现货</td>
-                                <td>洛阳众品食业有限公司</td>
-                                <td>
-                                    <a class="btn04" href="javascript:;">查看详情</a>
-                                    <a class="btn04" href="javascript:;">加入购物车</a>
-                                    <a class="btn04" href="javascript:;">收藏</a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>牛肉卷</td>
-                                <td>澳洲</td>
-                                <td>唐人基</td>
-                                <td>120g</td>
-                                <td>A级</td>
-                                <td>2000000</td>
-                                <td>RMB</td>
-                                <td>58.00</td>
-                                <td>+3.8%</td>
-                                <td>现货</td>
-                                <td>洛阳众品食业有限公司</td>
-                                <td>
-                                    <a class="btn04" href="javascript:;">查看详情</a>
-                                    <a class="btn04" href="javascript:;">加入购物车</a>
-                                    <a class="btn04" href="javascript:;">收藏</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>牛肉卷</td>
-                                <td>澳洲</td>
-                                <td>唐人基</td>
-                                <td>120g</td>
-                                <td>A级</td>
-                                <td>2000000</td>
-                                <td>RMB</td>
-                                <td>58.00</td>
-                                <td>+3.8%</td>
-                                <td>现货</td>
-                                <td>洛阳众品食业有限公司</td>
-                                <td>
-                                    <a class="btn04" href="javascript:;">查看详情</a>
-                                    <a class="btn04" href="javascript:;">加入购物车</a>
-                                    <a class="btn04" href="javascript:;">收藏</a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>牛肉卷</td>
-                                <td>澳洲</td>
-                                <td>唐人基</td>
-                                <td>120g</td>
-                                <td>A级</td>
-                                <td>2000000</td>
-                                <td>RMB</td>
-                                <td>58.00</td>
-                                <td>+3.8%</td>
-                                <td>现货</td>
-                                <td>洛阳众品食业有限公司</td>
-                                <td>
-                                    <a class="btn04" href="javascript:;">查看详情</a>
-                                    <a class="btn04" href="javascript:;">加入购物车</a>
-                                    <a class="btn04" href="javascript:;">收藏</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>牛肉卷</td>
-                                <td>澳洲</td>
-                                <td>唐人基</td>
-                                <td>120g</td>
-                                <td>A级</td>
-                                <td>2000000</td>
-                                <td>RMB</td>
-                                <td>58.00</td>
-                                <td>+3.8%</td>
-                                <td>现货</td>
-                                <td>洛阳众品食业有限公司</td>
-                                <td>
-                                    <a class="btn04" href="javascript:;">查看详情</a>
-                                    <a class="btn04" href="javascript:;">加入购物车</a>
-                                    <a class="btn04" href="javascript:;">收藏</a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>牛肉卷</td>
-                                <td>澳洲</td>
-                                <td>唐人基</td>
-                                <td>120g</td>
-                                <td>A级</td>
-                                <td>2000000</td>
-                                <td>RMB</td>
-                                <td>58.00</td>
-                                <td>+3.8%</td>
-                                <td>现货</td>
-                                <td>洛阳众品食业有限公司</td>
-                                <td>
-                                    <a class="btn04" href="javascript:;">查看详情</a>
-                                    <a class="btn04" href="javascript:;">加入购物车</a>
-                                    <a class="btn04" href="javascript:;">收藏</a>
-                                </td>
-                            </tr>
+ 
                         </tbody>
                     </table>
                 </div>
             <!-- page -->
             <div class="list-page">
                 <ul>
-                    <li><a href="javascript:;" class="prev-listPage prev-disable">上一页</a></li>
-                    <li><a href="javascript:;" id="hover-listPage">1</a></li>
-                    <li><a href="javascript:;">2</a></li>
-                    <li><a href="javascript:;">3</a></li>
-                    <li><a href="javascript:;">4</a></li>
-                    <li><a href="javascript:;" class="omitted">...</a></li>
-                    <li><a href="javascript:;">100</a></li>
-                    <li><a href="javascript:;" class="next-listPage">下一页</a></li>
-                    <li><span>到第</span><input type="text"><span>页</span></li>
-                    <li><a href="javascript:;" class="jump-page">确定</a></li>
+                    <li><a href="javascript:;" id="first">首页</a></li>
+                    <li><a class="prev-listPage" id="prev">上一页</a></li>
+                    <li><a href="javascript:;" id="hover-listPage" class="curPage" >1</a></li>
+                    <li><a class="next-listPage" id="next">下一页</a></li>
+                    <li><a href="javascript:;" id="last">末页</a></li>
+                    <li><span>总</span><span id="totalPage">5</span><span>页</span></li>
+                    <li><span>&nbsp;&nbsp;到第</span><input type="text" id="skipPageNum"><span>页</span></li>
+                    <li><a href="javascript:;" class="jump-page" id="skipPage">确定</a></li>
                 </ul>
             </div>
             <!--找货助手-->
@@ -631,6 +446,10 @@
 <script type="text/javascript" src="js/global.js"></script>
 <script type="text/javascript" src="js/jquery.accordion.js"></script>
 <script type="text/javascript" src="js/jquery.selectBox.js"></script>
+
+<!-- mine -->
+<script type="text/javascript" src="myJs/resourcePreview.js"></script>
+
 <script type="text/javascript">
     jQuery("#bannerIndex").slide({mainCell:".bd ul",autoPlay:true});
     jQuery(".banner-quotes01").each(function(){

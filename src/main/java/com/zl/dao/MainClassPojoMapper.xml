@@ -8,6 +8,12 @@
   <sql id="Base_Column_List">
     id, name
   </sql>
+  
+  <!--  查询所有的主类，用于用户选择检索 -->
+  <select id="selMClass" resultType="MainClassPojo">
+  	select * from mainclass;
+  </select>
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />

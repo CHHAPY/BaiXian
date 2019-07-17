@@ -14,9 +14,23 @@
     <!--[if lt IE 10]>
     <script src="js/html5shiv.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+	<!-- <script type="text/javascript" src="js/global.js"></script> -->
+	<script type="text/javascript" src="js/jquery.accordion.js"></script>
+	<script type="text/javascript" src="js/select.js"></script>
+	
+    <script type="text/javascript" src="myJs/jquery.js"></script>
+    <script type="text/javascript" src="myJs/vue.js"></script>
+    <script type="text/javascript" src="myJs/axios.js"></script>
+    <script type="text/javascript" src="myJs/resource.js"></script>
+    
+    
 </head>
 <body>
-<!--网站顶部-->
+
+<div id="app">
+	<!--网站顶部-->
 <div class="top">
     <div class="container">
         <div class="top-left">
@@ -280,7 +294,7 @@
             <dd><a href="javascript:;">物流</a></dd>
             <dd><a href="javascript:;">行情</a></dd>
             <dd><a href="javascript:;">积分商城</a></dd>
-            <dd><a href="javascript:;">会员俱乐部</a></dd>
+            <dd><a href="member_baseinfo.html">会员俱乐部</a></dd>
         </dl>
     </div>
 </nav>
@@ -329,31 +343,29 @@
                         </div>
                     </dd>
                 </dl>
-                 <dl>
+                 <dl >
                     <dt>分类：</dt>
-                    <dd><span>冻肉类</span><span>肉类</span><span>禽类</span><span>调理品</span><span>其它冻肉类</span><span>速冻食品类</span></dd>
+                    <dd  id="mainClass">
+                    	<!-- <input type="checkbox" v-for="item in data" value="item.id" />{{item.name}} -->
+                    </dd>
                 </dl>
                  <dl>
                     <dt>检索：</dt>
                     <dd>
                         <label for="">
-                            <p>产品名称：</p>
-                            <input type="text" class="input02 w125"/>
-                        </label>
-                        <label for="">
                             <p>公司名称：</p>
-                            <input type="text" class="input02 w125"/>
+                            <input type="text" class="input02 w125" id="comName"/>
                         </label>
                         <label for="">
                             <p>产品名称：</p>
-                            <input type="text" class="input02 w125"/>
+                            <input type="text" class="input02 w125" id="productName"/>
                         </label>
                         <label for="">
                             <p>产地：</p>
-                            <input type="text" class="input02 w125"/>
+                            <input type="text" class="input02 w125" id="area"/>
                         </label>
                         <div class="search-btn">
-                            <input type="submit" class="btn03" value="检索">
+                            <input type="button" class="btn03" value="检索" id="selBut">
                         </div>
                     </dd>
                 </dl>
@@ -366,7 +378,7 @@
                     <li>我的关注（4）</li>
                 </ul>
                 <div class="lib-content">
-                    <div class="child-content" style="display: block;">
+                   <div class="child-content" style="display: block;">
                         <!-- 资源 信息列表 -->
                         <table>
                             <thead>
@@ -380,8 +392,8 @@
                                     <th style="text-align: center;">操作</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <tbody  id="showDataDiv">
+                                <!-- <tr>
                                     <td>
                                         <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
                                         <a href="javascript:;" class="attention">【关注】</a>
@@ -394,204 +406,16 @@
                                     <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
                                     <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
                                     <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="resourcePreview.html" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
-                                        <a href="javascript:;" class="attention">【关注】</a>
-                                    </td>
-                                    <td>
-                                        <p>鱼类</p>
-                                        <p>牛肉</p>
-                                        <p>羊肉</p>
-                                    </td>
-                                    <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
-                                    <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
-                                    <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="javascript:;" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
-                                        <a href="javascript:;" class="attention">【关注】</a>
-                                    </td>
-                                    <td>
-                                        <p>鱼类</p>
-                                        <p>牛肉</p>
-                                        <p>羊肉</p>
-                                    </td>
-                                    <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
-                                    <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
-                                    <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="javascript:;" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
-                                        <a href="javascript:;" class="attention">【关注】</a>
-                                    </td>
-                                    <td>
-                                        <p>鱼类</p>
-                                        <p>牛肉</p>
-                                        <p>羊肉</p>
-                                    </td>
-                                    <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
-                                    <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
-                                    <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="javascript:;" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
-                                        <a href="javascript:;" class="attention">【关注】</a>
-                                    </td>
-                                    <td>
-                                        <p>鱼类</p>
-                                        <p>牛肉</p>
-                                        <p>羊肉</p>
-                                    </td>
-                                    <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
-                                    <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
-                                    <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="javascript:;" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
-                                        <a href="javascript:;" class="attention">【关注】</a>
-                                    </td>
-                                    <td>
-                                        <p>鱼类</p>
-                                        <p>牛肉</p>
-                                        <p>羊肉</p>
-                                    </td>
-                                    <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
-                                    <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
-                                    <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="javascript:;" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
+                                    <td><a href="resourcePreview.html" class="btn04">快速预览</a></td>
+                                </tr> -->
+                                
                             </tbody>
                         </table>
                     </div>
+                     
                     <div class="child-content" style="display: none;">
                       <!-- 资源 信息列表 -->
-                        <table>
-                            <thead>
-                                  <tr>
-                                    <th style="width: 250px;">公司名称</th>
-                                    <th style="width: 80px;">大类</th>
-                                    <th style="width: 230px;">主营</th>
-                                    <th style="width: 250px;">资源单说明</th>
-                                    <th style="width: 150px;">上传时间</th>
-                                    <th style="width: 100px;">下载数量</th>
-                                    <th style="text-align: center;">操作</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
-                                        <a href="javascript:;" class="no-attention">【取消关注】</a>
-                                    </td>
-                                    <td>
-                                        <p>鱼类</p>
-                                        <p>牛肉</p>
-                                        <p>羊肉</p>
-                                    </td>
-                                    <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
-                                    <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
-                                    <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="javascript:;" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
-                                        <a href="javascript:;" class="no-attention">【取消关注】</a>
-                                    </td>
-                                    <td>
-                                        <p>鱼类</p>
-                                        <p>牛肉</p>
-                                        <p>羊肉</p>
-                                    </td>
-                                    <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
-                                    <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
-                                    <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="javascript:;" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
-                                        <a href="javascript:;" class="no-attention">【取消关注】</a>
-                                    </td>
-                                    <td>
-                                        <p>鱼类</p>
-                                        <p>牛肉</p>
-                                        <p>羊肉</p>
-                                    </td>
-                                    <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
-                                    <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
-                                    <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="javascript:;" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
-                                        <a href="javascript:;" class="no-attention">【取消关注】</a>
-                                    </td>
-                                    <td>
-                                        <p>鱼类</p>
-                                        <p>牛肉</p>
-                                        <p>羊肉</p>
-                                    </td>
-                                    <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
-                                    <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
-                                    <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="javascript:;" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
-                                        <a href="javascript:;" class="no-attention">【取消关注】</a>
-                                    </td>
-                                    <td>
-                                        <p>鱼类</p>
-                                        <p>牛肉</p>
-                                        <p>羊肉</p>
-                                    </td>
-                                    <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
-                                    <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
-                                    <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="javascript:;" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <a href="javascript:;" class="name">河南众品食业股份有限公司</a>
-                                        <a href="javascript:;" class="no-attention">【取消关注】</a>
-                                    </td>
-                                    <td>
-                                        <p>鱼类</p>
-                                        <p>牛肉</p>
-                                        <p>羊肉</p>
-                                    </td>
-                                    <td>三文鱼、海参、带鱼、墨鱼、绵羊肉、羊腿、羊排、羊肉卷、牛腩肉、牛排肉、黄牛肉、肥牛肉···</td>
-                                    <td>资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单简介资源单</td>
-                                    <td>015-05-05 14：15</td>
-                                    <td>58</td>
-                                    <td><a href="javascript:;" class="btn04">快速预览</a><a href="javascript:;" class="btn04">下载</a></td>
-                                </tr>
-                            </tbody>
+
                         </table>
                     </div>
                 </div>
@@ -599,16 +423,14 @@
             <!-- page -->
             <div class="list-page">
                 <ul>
-                    <li><a href="javascript:;" class="prev-listPage prev-disable">上一页</a></li>
-                    <li><a href="javascript:;" id="hover-listPage">1</a></li>
-                    <li><a href="javascript:;">2</a></li>
-                    <li><a href="javascript:;">3</a></li>
-                    <li><a href="javascript:;">4</a></li>
-                    <li><a href="javascript:;" class="omitted">...</a></li>
-                    <li><a href="javascript:;">100</a></li>
-                    <li><a href="javascript:;" class="next-listPage">下一页</a></li>
-                    <li><span>到第</span><input type="text"><span>页</span></li>
-                    <li><a href="javascript:;" class="jump-page">确定</a></li>
+                    <li><a href="javascript:;" id="first">首页</a></li>
+                    <li><a class="prev-listPage" id="prev">上一页</a></li>
+                    <li><a href="javascript:;" id="hover-listPage" class="curPage" >1</a></li>
+                    <li><a class="next-listPage" id="next">下一页</a></li>
+                    <li><a href="javascript:;" id="last">末页</a></li>
+                    <li><span>总</span><span id="totalPage">5</span><span>页</span></li>
+                    <li><span>&nbsp;&nbsp;到第</span><input type="text" id="skipPageNum"><span>页</span></li>
+                    <li><a href="javascript:;" class="jump-page" id="skipPage">确定</a></li>
                 </ul>
             </div>
             <!--找货助手-->
@@ -668,62 +490,11 @@
         <p>Copyright <i class="fa fa-copyright"></i> 超鲜网 粤ICP备 13013915号-3  ICP证：粤B2-201401448</p>
     </div>
 </footer>
-<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
-<script type="text/javascript" src="js/global.js"></script>
-<script type="text/javascript" src="js/jquery.accordion.js"></script>
-<script type="text/javascript" src="js/select.js"></script>
-<script type="text/javascript">
-    jQuery("#bannerIndex").slide({mainCell:".bd ul",autoPlay:true});
-    jQuery(".banner-quotes01").each(function(){
-        $(this).slide({mainCell:".bd ul",autoPlay:false});
-    });
-     jQuery(".banner-quotes02").each(function(){
-        $(this).slide({mainCell:".bd ul",autoPlay:false});
-    });
-    jQuery(".txtScroll-top").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"top",autoPlay:true,vis:13});
-</script>
-<script type="text/javascript">
-    $(function(){
-      $('dl#my-accordion').accordion({open:true});
-     });
-</script>
-<script type="text/javascript">
-$(function(){
-    // 地区选择
-    $('.change-area').click(function(){
-        $('.content-area').fadeToggle(100);
-    });
-    $('.closed').click(function(){
-       $('.content-area').fadeOut(100);
-        $('.provinces span').removeClass('hover');
-        $('.city-names').css({"display":"none"});
-        $('.city-names>ul>li').css({"display":"none"});
-    });
-    $('.city-names span').each(function(){
-        $(this).click(function(){
-            $('.content-area').fadeOut(100);
-            $('.change-area').html($(this).html());
-        });
-    });
-    // 城市联动
-    $('.provinces span').each(function(){
-        var Index = $(this).index();
-        $(this).hover(function(){
-            var Top = $(this).position().top;
-            var Left = $(this).position().left;
-            $('.city-names').css({
-                "display":"block",
-                "top":(Top+20)+'px',
-                "left":(Left+70)+'px'
-            });
-            if($('.city-names').css('display') !=='none'){
-                 $('.provinces span').eq(Index).addClass('hover');
-                 $('.provinces span').eq(Index).siblings().removeClass('hover');
-            };
-        });
-    });
-});
-</script>
+</div>
+
 </body>
 </html>
+
+
+
+
