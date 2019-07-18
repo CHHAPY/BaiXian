@@ -2,6 +2,9 @@ package com.zl.pojo;
 
 import java.math.BigDecimal;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class ProductPojo {
     private Integer id;
 
@@ -21,13 +24,34 @@ public class ProductPojo {
 
     private String warehouse;
 
-    private Integer prostatus;
+    private Integer proStatus;
 
     private String remark;
 
-    private Integer sourceid;
+    private Integer classId;
+    
+    private Integer sourceId;
+    
+    
 
-    public Integer getId() {
+    public Integer getClassId() {
+		return classId;
+	}
+
+	public void setClassId(Integer classId) {
+		this.classId = classId;
+	}
+
+	public Integer getSourceId() {
+		return sourceId;
+	}
+
+	public void setSourceId(Integer sourceId) {
+		this.sourceId = sourceId;
+	}
+
+
+	public Integer getId() {
         return id;
     }
 
@@ -99,15 +123,15 @@ public class ProductPojo {
         this.warehouse = warehouse == null ? null : warehouse.trim();
     }
 
-    public Integer getProstatus() {
-        return prostatus;
-    }
+	public Integer getProStatus() {
+		return proStatus;
+	}
 
-    public void setProstatus(Integer prostatus) {
-        this.prostatus = prostatus;
-    }
+	public void setProStatus(Integer proStatus) {
+		this.proStatus = proStatus;
+	}
 
-    public String getRemark() {
+	public String getRemark() {
         return remark;
     }
 
@@ -115,11 +139,14 @@ public class ProductPojo {
         this.remark = remark == null ? null : remark.trim();
     }
 
-    public Integer getSourceid() {
-        return sourceid;
-    }
+	@Override
+	public String toString() {
+		return "ProductPojo [id=" + id + ", name=" + name + ", area=" + area + ", type=" + type + ", rank=" + rank
+				+ ", count=" + count + ", price=" + price + ", currency=" + currency + ", warehouse=" + warehouse
+				+ ", proStatus=" + proStatus + ", remark=" + remark + ", classId=" + classId + ", sourceId=" + sourceId
+				+ "]";
+	}
 
-    public void setSourceid(Integer sourceid) {
-        this.sourceid = sourceid;
-    }
+
+    
 }

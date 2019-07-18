@@ -1,5 +1,6 @@
 package com.zl.dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -10,6 +11,7 @@ import com.zl.pojo.ProductPojo;
 import com.zl.pojo.SelPartPojo;
 import com.zl.pojo.SelSourcesInfo;
 import com.zl.pojo.SourceInfo;
+import org.apache.ibatis.annotations.Select;
 import com.zl.pojo.SourcePojo;
 
 public interface SourcePojoMapper {
@@ -45,13 +47,9 @@ public interface SourcePojoMapper {
     List<ProductPojo> selPart(SelPartPojo pojo);
     int selPartTotal(SelPartPojo pojo);
     
+    @Select("select id from source where createDate=#{date}")
+    int selectId(Date date);
+
+
 }
-
-
-
-
-
-
-
-
 

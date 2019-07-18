@@ -3,6 +3,8 @@ package com.zl.dao;
 import com.zl.pojo.UserPojo;
 
 public interface UserPojoMapper {
+	UserPojo loginUser(UserPojo user);
+	
     int deleteByPrimaryKey(Integer id);
 
     int insert(UserPojo record);

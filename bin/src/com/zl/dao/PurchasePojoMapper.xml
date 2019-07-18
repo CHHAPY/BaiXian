@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.dao.PurchasePojoMapper">
+  <resultMap id="BaseResultMap" type="com.zl.pojo.PurchasePojo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="purchaseID" jdbcType="VARCHAR" property="purchaseid" />
+    <result column="pucName" jdbcType="VARCHAR" property="pucname" />
+    <result column="products" jdbcType="VARCHAR" property="products" />
+    <result column="area" jdbcType="VARCHAR" property="area" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="rank" jdbcType="VARCHAR" property="rank" />
+    <result column="warehouse" jdbcType="VARCHAR" property="warehouse" />
+    <result column="proStatus" jdbcType="INTEGER" property="prostatus" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="explains" jdbcType="VARCHAR" property="explains" />
+    <result column="payMethod" jdbcType="VARCHAR" property="paymethod" />
+    <result column="invoiceType" jdbcType="INTEGER" property="invoicetype" />
+    <result column="adress" jdbcType="VARCHAR" property="adress" />
+    <result column="deadline" jdbcType="TIMESTAMP" property="deadline" />
+    <result column="linkName" jdbcType="VARCHAR" property="linkname" />
+    <result column="comName" jdbcType="VARCHAR" property="comname" />
+    <result column="linkTel" jdbcType="CHAR" property="linktel" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, purchaseID, pucName, products, area, type, rank, warehouse, proStatus, price, 
+    explains, payMethod, invoiceType, adress, deadline, linkName, comName, linkTel, status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from purchase
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from purchase
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.zl.pojo.PurchasePojo">
+    insert into purchase (id, purchaseID, pucName, 
+      products, area, type, 
+      rank, warehouse, proStatus, 
+      price, explains, payMethod, 
+      invoiceType, adress, deadline, 
+      linkName, comName, linkTel, 
+      status)
+    values (#{id,jdbcType=INTEGER}, #{purchaseid,jdbcType=VARCHAR}, #{pucname,jdbcType=VARCHAR}, 
+      #{products,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{rank,jdbcType=VARCHAR}, #{warehouse,jdbcType=VARCHAR}, #{prostatus,jdbcType=INTEGER}, 
+      #{price,jdbcType=DECIMAL}, #{explains,jdbcType=VARCHAR}, #{paymethod,jdbcType=VARCHAR}, 
+      #{invoicetype,jdbcType=INTEGER}, #{adress,jdbcType=VARCHAR}, #{deadline,jdbcType=TIMESTAMP}, 
+      #{linkname,jdbcType=VARCHAR}, #{comname,jdbcType=VARCHAR}, #{linktel,jdbcType=CHAR}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zl.pojo.PurchasePojo">
+    insert into purchase
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="purchaseid != null">
+        purchaseID,
+      </if>
+      <if test="pucname != null">
+        pucName,
+      </if>
+      <if test="products != null">
+        products,
+      </if>
+      <if test="area != null">
+        area,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="rank != null">
+        rank,
+      </if>
+      <if test="warehouse != null">
+        warehouse,
+      </if>
+      <if test="prostatus != null">
+        proStatus,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="explains != null">
+        explains,
+      </if>
+      <if test="paymethod != null">
+        payMethod,
+      </if>
+      <if test="invoicetype != null">
+        invoiceType,
+      </if>
+      <if test="adress != null">
+        adress,
+      </if>
+      <if test="deadline != null">
+        deadline,
+      </if>
+      <if test="linkname != null">
+        linkName,
+      </if>
+      <if test="comname != null">
+        comName,
+      </if>
+      <if test="linktel != null">
+        linkTel,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="purchaseid != null">
+        #{purchaseid,jdbcType=VARCHAR},
+      </if>
+      <if test="pucname != null">
+        #{pucname,jdbcType=VARCHAR},
+      </if>
+      <if test="products != null">
+        #{products,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        #{rank,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouse != null">
+        #{warehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="prostatus != null">
+        #{prostatus,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="explains != null">
+        #{explains,jdbcType=VARCHAR},
+      </if>
+      <if test="paymethod != null">
+        #{paymethod,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicetype != null">
+        #{invoicetype,jdbcType=INTEGER},
+      </if>
+      <if test="adress != null">
+        #{adress,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linkname != null">
+        #{linkname,jdbcType=VARCHAR},
+      </if>
+      <if test="comname != null">
+        #{comname,jdbcType=VARCHAR},
+      </if>
+      <if test="linktel != null">
+        #{linktel,jdbcType=CHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zl.pojo.PurchasePojo">
+    update purchase
+    <set>
+      <if test="purchaseid != null">
+        purchaseID = #{purchaseid,jdbcType=VARCHAR},
+      </if>
+      <if test="pucname != null">
+        pucName = #{pucname,jdbcType=VARCHAR},
+      </if>
+      <if test="products != null">
+        products = #{products,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null">
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        rank = #{rank,jdbcType=VARCHAR},
+      </if>
+      <if test="warehouse != null">
+        warehouse = #{warehouse,jdbcType=VARCHAR},
+      </if>
+      <if test="prostatus != null">
+        proStatus = #{prostatus,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="explains != null">
+        explains = #{explains,jdbcType=VARCHAR},
+      </if>
+      <if test="paymethod != null">
+        payMethod = #{paymethod,jdbcType=VARCHAR},
+      </if>
+      <if test="invoicetype != null">
+        invoiceType = #{invoicetype,jdbcType=INTEGER},
+      </if>
+      <if test="adress != null">
+        adress = #{adress,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null">
+        deadline = #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linkname != null">
+        linkName = #{linkname,jdbcType=VARCHAR},
+      </if>
+      <if test="comname != null">
+        comName = #{comname,jdbcType=VARCHAR},
+      </if>
+      <if test="linktel != null">
+        linkTel = #{linktel,jdbcType=CHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zl.pojo.PurchasePojo">
+    update purchase
+    set purchaseID = #{purchaseid,jdbcType=VARCHAR},
+      pucName = #{pucname,jdbcType=VARCHAR},
+      products = #{products,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      rank = #{rank,jdbcType=VARCHAR},
+      warehouse = #{warehouse,jdbcType=VARCHAR},
+      proStatus = #{prostatus,jdbcType=INTEGER},
+      price = #{price,jdbcType=DECIMAL},
+      explains = #{explains,jdbcType=VARCHAR},
+      payMethod = #{paymethod,jdbcType=VARCHAR},
+      invoiceType = #{invoicetype,jdbcType=INTEGER},
+      adress = #{adress,jdbcType=VARCHAR},
+      deadline = #{deadline,jdbcType=TIMESTAMP},
+      linkName = #{linkname,jdbcType=VARCHAR},
+      comName = #{comname,jdbcType=VARCHAR},
+      linkTel = #{linktel,jdbcType=CHAR},
+      status = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

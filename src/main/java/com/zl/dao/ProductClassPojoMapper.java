@@ -1,5 +1,7 @@
 package com.zl.dao;
 
+import java.util.List;
+
 import com.zl.pojo.ProductClassPojo;
 
 public interface ProductClassPojoMapper {
@@ -14,4 +16,7 @@ public interface ProductClassPojoMapper {
     int updateByPrimaryKeySelective(ProductClassPojo record);
 
     int updateByPrimaryKey(ProductClassPojo record);
+    
+    List<ProductClassPojo> selectProc();
+    
 }

@@ -2,12 +2,14 @@ package com.zl.service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Date;
 
 import com.zl.pojo.MainClassPojo;
 import com.zl.pojo.ProductPojo;
 import com.zl.pojo.SelPartPojo;
 import com.zl.pojo.SelSourcesInfo;
 import com.zl.pojo.SourceInfo;
+import com.zl.pojo.ProductClassPojo;
 
 public interface ResourceService {
 	/**
@@ -37,4 +39,9 @@ public interface ResourceService {
 	 */
 	List<ProductPojo> selPart(SelPartPojo pojo);
 	int selPartTotal(SelPartPojo pojo);
+	
+	public List<ProductClassPojo> selectProc();
+	public int addPro(ProductPojo pro,Date date);
+	public Date addSource(String explains,int id);
+
 }

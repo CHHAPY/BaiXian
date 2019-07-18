@@ -1,5 +1,7 @@
 package com.zl.service;
 
+
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +20,11 @@ import com.zl.pojo.ProductPojo;
 import com.zl.pojo.SelPartPojo;
 import com.zl.pojo.SelSourcesInfo;
 import com.zl.pojo.SourceInfo;
+import com.zl.dao.ProductClassPojoMapper;
+import com.zl.dao.ProductPojoMapper;
+import com.zl.pojo.ProductClassPojo;
+import com.zl.pojo.SourcePojo;
+
 
 @Service
 public class ResourceServiceImpl implements ResourceService{
@@ -25,6 +32,16 @@ public class ResourceServiceImpl implements ResourceService{
 	private MainClassPojoMapper mcmapper;
 	@Autowired
 	private SourcePojoMapper smapper;
+	
+	@Autowired
+	ProductClassPojoMapper pcm;
+	
+	@Autowired
+	ProductPojoMapper pm;
+	
+//	@Autowired
+//	SourcePojoMapper sm;
+	
 	
 	@Override
 	public List<MainClassPojo> selMClass() {
@@ -142,22 +159,34 @@ public class ResourceServiceImpl implements ResourceService{
 		return smapper.selPartTotal(pojo);
 	}
 
+	@Override
+	public List<ProductClassPojo> selectProc() {
+		// TODO Auto-generated method stub
+		List<ProductClassPojo> prcs=pcm.selectProc();
+		return prcs;
+	}
 
+	
+	//-----------------马克
+	@Override
+	public int addPro(ProductPojo pro,Date date) {
+		int sourceId=smapper.selectId(date);
+		pro.setSourceId(sourceId);
+		return pm.insert(pro);
+	}
+	
+	@Override
+	public Date addSource(String explains,int id) {
+		SourcePojo s=new SourcePojo();
+		Date date=new Date();
+		s.setCreatedate(date);
+		s.setComid(id);
+		s.setExplains(explains);
+		smapper.insert(s);
+		return date;
+	}
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

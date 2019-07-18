@@ -18,7 +18,9 @@
   	select count(*) from user;
   </select>
   
-  
+  <select id="loginUser" parameterType="UserPojo" resultType="UserPojo">
+  	select * from user where name=#{name} and pad=#{pad}
+  </select>
   
   
   

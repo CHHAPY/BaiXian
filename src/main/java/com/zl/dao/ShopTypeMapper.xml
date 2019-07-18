@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zl.dao.ShopTypeMapper">
+  
+  <insert id="addShopType" parameterType="ShopType">
+  INSERT into
+  `shoptype` 
+  VALUES(
+  DEFAULT,#{stname},#{stdress},#{stmodel},#{stlevel},#{stdepository},#{stprice},#{stshow},#{staddress},#{stdate},#{stuname},#{stuphone},#{stcompany},#{stypename},#{ststate},#{sttime}
+  )
+  </insert>
+  
+  <select id="findAllShopType" parameterType="fenYe" resultType="ShopType">
+  	select * from shoptype 
+  	<where> 		
+		<if test="valuelike!=null and valuelike!=''"> stypename like CONCAT('%',#{valuelike},'%') </if>		
+	</where>
+	LIMIT  #{startRow},#{rows}
+  </select>
+  
+ <select id="findShopTypeById" resultType="ShopType">
+ 	select * from shoptype where stid=#{id}
+ </select>
+ 
+ <select id="findCount" parameterType="fenYe" resultType="int">
+ 	select count(*) from shoptype 
+ 	<where> 		
+		<if test="valuelike!=null and valuelike!=''"> stypename like CONCAT('%',#{valuelike},'%') </if>		
+	</where>
+ </select>
+ 
+ <select id="findAllShopTypes" resultType="ShopType">
+ 	select * from shoptype 
+ </select>
+  
+</mapper>

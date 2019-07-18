@@ -1,7 +1,10 @@
 package com.zl.controller;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Date;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +16,9 @@ import com.zl.pojo.ProductPojo;
 import com.zl.pojo.SelPartPojo;
 import com.zl.pojo.SelSourcesInfo;
 import com.zl.pojo.SourceInfo;
+import com.zl.pojo.UserPojo;
 import com.zl.service.ResourceService;
+import com.zl.pojo.ProductClassPojo;
 
 @Controller
 @RequestMapping("/source")
@@ -59,4 +64,20 @@ public class ResourceController {
 	}
 	
 	
+	@RequestMapping("/selProc")
+	@ResponseBody
+	public List<ProductClassPojo> selectProc() {
+		return rs.selectProc();
+	}
+	
+	@RequestMapping("/addPro")
+	@ResponseBody
+	public int addPro(ProductPojo pro,String explains,HttpSession session){
+		UserPojo userPojo=(UserPojo) session.getAttribute("loginUser");
+		int id=userPojo.getId();
+		Date date=rs.addSource(explains,id);
+		return rs.addPro(pro,date);
+		
+	}
+
 }

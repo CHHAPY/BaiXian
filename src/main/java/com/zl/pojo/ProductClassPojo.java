@@ -30,4 +30,11 @@ public class ProductClassPojo {
     public void setBcid(Integer bcid) {
         this.bcid = bcid;
     }
+
+	@Override
+	public String toString() {
+		return "ProductClassPojo [id=" + id + ", name=" + name + ", bcid=" + bcid + "]";
+	}
+    
+    
 }

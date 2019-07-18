@@ -5,27 +5,27 @@ import java.util.Date;
 
 public class PurchasePojo {
     private Integer id;
-
+//采购单号生成规则：cg+年月日时分秒毫秒
     private String purchaseid;
-
+//    采购单名称
     private String pucname;
-
+//采购物品
     private String products;
-
+//产地要求
     private String area;
-
+//规格型号
     private String type;
-
+//级别要求
     private String rank;
-
+//仓库要求
     private String warehouse;
-
+//    期/现货
     private Integer prostatus;
-
+//价格要求
     private BigDecimal price;
-
+//采购说明
     private String explains;
-
+//付款方式
     private String paymethod;
 
     private Integer invoicetype;
